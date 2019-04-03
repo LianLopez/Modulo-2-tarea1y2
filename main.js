@@ -57,73 +57,105 @@ for (var i = 0; i < ageArray.length; i++) {
     console.log(ageArray[i]);
   }
 }
+
 //Exercise 3
-function numeroBajo(Array) {
-  Array.sort();
-  console.log(Array[0]);
+function numeroBajo(array) {
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] < array[i - 1]) {
+      var numberLow = array[i];
+    }
+  }
+  return numberLow;
 }
-numeroBajo(ageArray);
+console.log(numeroBajo(ageArray));
+
 
 //Exercise 4
-function numeroAlto(Array) {
-  Array.sort();
-  Array.reverse();
-  console.log(Array[0]);
+function numeroAlto(array) {
+  var numberHigh = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (numberHigh < array[i]) {
+      numberHigh = array[i];
+    }
+  }
+  return numberHigh;
 }
-numeroAlto(ageArray);
+
+console.log(numeroAlto(ageArray));
 
 //Exercise 5
 var array = [3, 6, 67, 6, 23, 11, 100, 8, 93, 0, 17, 24, 7, 1, 33, 45, 28, 33, 23, 12, 99, 100];
 var index = 1;
 
-function numeroIndice(Array, indice) {
-  console.log(Array[indice]);
+function numeroIndice(array, indice) {
+  console.log(array[indice]);
 }
 
 numeroIndice(array, index);
 
 //Exercise 6
-var array2 = [3, 6, 67, 6, 23, 11, 100, 8, 93, 0, 17, 24, 7, 1, 33, 45, 28, 33, 23, 12, 99, 100];
+var array = [3, 6, 67, 6, 23, 11, 100, 8, 93, 0, 17, 24, 7, 1, 33, 45, 28, 33, 23, 12, 99, 100];
 
-function valorRepetido(Array) {
-  Array.sort();
-  let array3 = [];
-  for (var i = 0; i < Array.length; i++) {
-    if (Array[i] != Array[i + 1]) {} else {
-      array3.push(Array[i]);
+function valorRepetido(array) {
+  var newArray = [];
+  for (var i = 0; i < array.length; i++) {
+    for (var u = i + 1; u <= array.length; u++) {
+      if (array[u] == array[i]) {
+        newArray.push(array[i]);
+      }
     }
   }
-  console.log(array3);
+  return newArray;
 }
-valorRepetido(array2);
+console.log(valorRepetido(array));
+
 
 //Exercise 7
 myColor = ["Red", "Green", "White", "Black"];
 console.log(myColor.toString());
 
 //String Exercise 1
-var x = 32443;
+var number = 32443;
 
 function reverse(number) {
   number = number + "";
   return number.split("").reverse().join("");
 }
-console.log(reverse(x));
+
+console.log(reverse(number));
 
 //Exercise 2
-var x = 'webmaster';
+var word = 'webmaster';
 
 function orderAlphabetical(string) {
-  return(string.split("").sort().join(""));
+  return (string.split("").sort().join(""));
 }
 
-console.log(orderAlphabetical(x));
+console.log(orderAlphabetical(word));
 
 //Exercise 3
-var x = "prince of persia";
+var title = "prince of persia";
 
 function uppercase(string) {
   return (string.replace(/\b\w/g, l => l.toUpperCase()));
 }
 
-console.log(uppercase(x));
+console.log(uppercase(title));
+
+//Exercise 4
+var phrase = "Web Development Tutorial";
+
+function wordLongest(string) {
+  var str = string.split(" ");
+  var longWord = null;
+  var longest = 0;
+  for (var i = 0; i < str.length - 1; i++) {
+    if (longest < str[i].length) {
+      longest = str[i].length;
+      longWord = str[i];
+    }
+  }
+  return longWord;
+}
+
+console.log(wordLongest(phrase));
