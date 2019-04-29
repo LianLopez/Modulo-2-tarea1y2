@@ -64,4 +64,6 @@ function obtenerValores() {
 
 window.onload = function () {
 	obtenerValores();
+	console.log("Pagina cargada");
+	
 }
