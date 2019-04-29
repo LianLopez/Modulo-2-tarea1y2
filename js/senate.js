@@ -1,5 +1,4 @@
 var info = "";
-var paginaSenador = Boolean;
 
 function eliminarFila() {
 	var fin = true;
@@ -49,25 +48,16 @@ function renderTableFiltered(data, party, state) {
 }
 
 function obtenerValores() {
-	if (document.getElementById("tabla1")) {
-		paginaSenador = true;
-	} else {
-		paginaSenador = false;
-	}
-	var republican = document.getElementById("R");
-	var democrat = document.getElementById("D");
-	var independient = document.getElementById("I");
-	var party = [republican, democrat, independient];
-	var state = document.getElementById("selectstate").value;
-	if (Boolean(paginaSenador) == true) {
+	if (document.getElementById("tabla")) {
+		var republican = document.getElementById("R");
+		var democrat = document.getElementById("D");
+		var independient = document.getElementById("I");
+		var party = [republican, democrat, independient];
+		var state = document.getElementById("selectstate").value;
+
 		eliminarFila();
-		var html = renderTableFiltered(datasenate, party, state);
-		document.getElementById("tabla1").innerHTML = html;
-		info = "";
-	} else {
-		eliminarFila();
-		var html = renderTableFiltered(datahouse, party, state);
-		document.getElementById("tabla2").innerHTML = html;
+		var html = renderTableFiltered(data, party, state);
+		document.getElementById("tabla").innerHTML = html;
 		info = "";
 	}
 }
@@ -75,6 +65,3 @@ function obtenerValores() {
 window.onload = function () {
 	obtenerValores();
 }
-
-
-
